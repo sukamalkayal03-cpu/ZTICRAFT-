@@ -55,6 +55,16 @@
   body.is-touch #prompt{top:56%}
   @media (max-width:600px){ #mini{width:84px;height:84px} #clock b{font-size:15px} }
 </style>
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#080816">
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
 </head>
 <body>
 <div id="stage"></div>
