@@ -1,0 +1,246 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080816">
+<title>ZTICRAFT STORE</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#080816;
+ color:white;
+}
+header{
+ background:#11112a;
+ padding:18px;
+ text-align:center;
+ border-bottom:2px solid #8b5cf6;
+}
+.logo{
+ font-size:27px;
+ font-weight:bold;
+ color:#a78bfa;
+}
+header p{color:#bbb;font-size:13px}
+.search{
+ width:90%;
+ padding:13px;
+ border-radius:12px;
+ border:1px solid #555;
+ background:#191932;
+ color:white;
+ margin:15px auto;
+ display:block;
+}
+.hero{
+ margin:15px;
+ padding:25px 18px;
+ border-radius:18px;
+ background:linear-gradient(135deg,#5425b5,#11112a,#075985);
+}
+.hero h1{font-size:28px}
+.hero p{color:#ddd;line-height:1.5}
+button{
+ border:0;
+ border-radius:9px;
+ padding:11px 15px;
+ background:#8b5cf6;
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
+}
+h2{margin:20px 15px}
+.categories{
+ display:flex;
+ gap:9px;
+ overflow:auto;
+ padding:0 15px;
+}
+.categories button{white-space:nowrap}
+.games{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;
+ padding:15px;
+}
+.card{
+ background:#15152b;
+ border:1px solid #292947;
+ border-radius:14px;
+ overflow:hidden;
+}
+.cover{
+ height:105px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:43px;
+ background:linear-gradient(135deg,#292958,#17172b);
+}
+.info{padding:12px}
+.info h3{font-size:16px;margin:2px 0 8px}
+.info p{font-size:12px;color:#bbb}
+.download{
+ width:100%;
+ margin-top:7px;
+}
+.tag{color:#a78bfa;font-size:11px}
+footer{
+ text-align:center;
+ padding:25px 10px;
+ color:#aaa;
+ border-top:1px solid #292947;
+ font-size:12px;
+}
+a{color:white;text-decoration:none}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">🎮 ZTICRAFT STORE</div>
+ <p>Your Gaming World Starts Here!</p>
+</header>
+
+<input id="search" class="search"
+placeholder="🔎 Search games..."
+oninput="searchGames()">
+
+<section class="hero">
+ <h1>LEVEL UP YOUR GAMING! 🚀</h1>
+ <p>Discover games, explore new worlds
+ and find your next adventure.</p>
+ <button onclick="document.getElementById('allgames').scrollIntoView({behavior:'smooth'})">
+ Explore Games ↓
+ </button>
+</section>
+
+<h2>🔥 Categories</h2>
+
+<div class="categories">
+ <button onclick="filterGames('all')">All Games</button>
+ <button onclick="filterGames('Adventure')">Adventure</button>
+ <button onclick="filterGames('Racing')">Racing</button>
+ <button onclick="filterGames('Action')">Action</button>
+ <button onclick="filterGames('Sandbox')">Sandbox</button>
+</div>
+
+<h2 id="allgames">🎯 Popular Games</h2>
+
+<div class="games" id="games">
+
+<div class="card" data-name="minecraft" data-category="Sandbox">
+ <div class="cover">🌍</div>
+ <div class="info">
+  <span class="tag">SANDBOX</span>
+  <h3>Minecraft</h3>
+  <p>Build, explore and survive.</p>
+  <button class="download"
+  onclick="openGame('Minecraft','https://www.minecraft.net/')">
+  Get Game ↗
+  </button>
+ </div>
+</div>
+
+<div class="card" data-name="subway surfers" data-category="Action">
+ <div class="cover">🏃</div>
+ <div class="info">
+  <span class="tag">ACTION</span>
+  <h3>Subway Surfers</h3>
+  <p>Run, jump and collect coins.</p>
+  <button class="download"
+  onclick="openGame('Subway Surfers','https://play.google.com/store/search?q=Subway%20Surfers&c=apps')">
+  Get Game ↗
+  </button>
+ </div>
+</div>
+
+<div class="card" data-name="asphalt legends" data-category="Racing">
+ <div class="cover">🏎️</div>
+ <div class="info">
+  <span class="tag">RACING</span>
+  <h3>Asphalt Legends</h3>
+  <p>Race amazing cars.</p>
+  <button class="download"
+  onclick="openGame('Asphalt Legends','https://play.google.com/store/search?q=Asphalt%20Legends&c=apps')">
+  Get Game ↗
+  </button>
+ </div>
+</div>
+
+<div class="card" data-name="roblox" data-category="Adventure">
+ <div class="cover">🎲</div>
+ <div class="info">
+  <span class="tag">ADVENTURE</span>
+  <h3>Roblox</h3>
+  <p>Discover worlds and experiences.</p>
+  <button class="download"
+  onclick="openGame('Roblox','https://www.roblox.com/')">
+  Get Game ↗
+  </button>
+ </div>
+</div>
+
+<div class="card" data-name="free fire" data-category="Action">
+ <div class="cover">🎯</div>
+ <div class="info">
+  <span class="tag">ACTION</span>
+  <h3>Free Fire</h3>
+  <p>Explore the action game.</p>
+  <button class="download"
+  onclick="openGame('Free Fire','https://play.google.com/store/search?q=Free%20Fire&c=apps')">
+  Get Game ↗
+  </button>
+ </div>
+</div>
+
+<div class="card" data-name="real driving" data-category="Racing">
+ <div class="cover">🚘</div>
+ <div class="info">
+  <span class="tag">RACING</span>
+  <h3>Real Driving</h3>
+  <p>Find driving games.</p>
+  <button class="download"
+  onclick="openGame('Driving Games','https://play.google.com/store/search?q=real%20driving%20games&c=apps')">
+  Get Games ↗
+  </button>
+ </div>
+</div>
+
+</div>
+
+<footer>
+ <h3>🎮 ZTICRAFT STORE</h3>
+ Your Gaming World, Your Rules!<br><br>
+ © 2026 ZTICRAFT
+</footer>
+
+<script>
+function openGame(name,url){
+ window.open(url,'_blank');
+}
+
+function searchGames(){
+ let q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.card').forEach(card=>{
+  card.style.display=card.dataset.name.includes(q)?'block':'none';
+ });
+}
+
+function filterGames(category){
+ document.querySelectorAll('.card').forEach(card=>{
+  card.style.display=
+  category==='all'||card.dataset.category===category
+  ?'block':'none';
+ });
+ document.getElementById('allgames').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+  </html>
