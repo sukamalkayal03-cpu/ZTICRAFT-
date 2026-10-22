@@ -1,0 +1,23 @@
+here{
+  "name": "RELTEL - Open World",
+  "short_name": "RELTEL",
+  "description": "RELTEL Open World Gaming Experience",
+  "start_url": "./RELTEL_ultra_realistic_wind_flowers_godrays.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#080816",
+  "theme_color": "#080816",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
